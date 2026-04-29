@@ -15,21 +15,16 @@
         }
         .hero-gradient { background: linear-gradient(135deg, #fefce8 0%, #fef9c3 100%); }
         .blob {
-            position: absolute;
-            width: 500px;
-            height: 500px;
-            background: #fde047;
-            filter: blur(80px);
-            border-radius: 50%;
-            z-index: 0;
-            opacity: 0.4;
+            position: absolute; width: 500px; height: 500px;
+            background: #fde047; filter: blur(80px); border-radius: 50%;
+            z-index: 0; opacity: 0.4;
         }
     </style>
 </head>
 <body class="bg-white text-slate-900">
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-lg border-b border-yellow-100">
+    <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-lg border-b border-yellow-100">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             <div class="flex items-center gap-2">
                 <div class="w-10 h-10 bg-yellow-500 rounded-xl flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-yellow-200">D</div>
@@ -37,7 +32,7 @@
             </div>
             <div class="hidden md:flex items-center gap-8 font-semibold text-slate-600">
                 <a href="#home" class="hover:text-yellow-600 transition">Beranda</a>
-                <a href="#fitur" class="hover:text-yellow-600 transition">Keunggulan</a>
+                <a href="#keunggulan" class="hover:text-yellow-600 transition">Keunggulan</a>
                 <a href="#menu" class="hover:text-yellow-600 transition">Menu</a>
                 <a href="#harga" class="hover:text-yellow-600 transition">Paket</a>
             </div>
@@ -50,8 +45,6 @@
     <!-- Hero Section -->
     <section id="home" class="relative pt-32 pb-20 hero-gradient overflow-hidden min-h-screen flex items-center">
         <div class="blob -top-20 -right-20"></div>
-        <div class="blob -bottom-20 -left-20"></div>
-        
         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center relative z-10">
             <div>
                 <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur border border-yellow-200 text-yellow-700 rounded-2xl text-sm font-bold mb-8 shadow-sm">
@@ -60,39 +53,70 @@
                 </div>
                 <h1 class="text-5xl md:text-7xl font-extrabold leading-[1.1] mb-8 text-slate-900">
                     Sajian Lezat Sehangat <br>
-                    <span class="text-yellow-500 italic relative">
-                        Masakan Ibu
-                        <svg class="absolute -bottom-2 left-0 w-full" height="8" viewBox="0 0 200 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M2 6C50 2 150 2 198 6" stroke="#EAB308" stroke-width="4" stroke-linecap="round"/>
-                        </svg>
-                    </span>
+                    <span class="text-yellow-500 italic relative">Masakan Ibu</span>
                 </h1>
                 <p class="text-xl text-slate-600 mb-10 leading-relaxed max-w-lg">
-                    Catering Dapur Rasa melayani nasi kotak, prasmanan, hingga katering harian dengan rasa otentik dan bahan pilihan.
+                    Catering Dapur Rasa melayani nasi kotak hingga prasmanan dengan rasa otentik dan bahan pilihan harian[cite: 3].
                 </p>
                 <div class="flex flex-wrap gap-5">
-                    <a href="#harga" class="bg-yellow-500 hover:bg-yellow-600 text-white px-10 py-5 rounded-3xl font-bold text-lg transition transform hover:-translate-y-1 shadow-2xl shadow-yellow-400/40">
-                        Lihat Pilihan Paket
-                    </a>
-                    <a href="#menu" class="bg-white border-2 border-yellow-100 text-yellow-600 px-10 py-5 rounded-3xl font-bold text-lg hover:bg-yellow-50 transition shadow-xl shadow-yellow-100">
-                        Daftar Menu
-                    </a>
+                    <a href="#harga" class="bg-yellow-500 hover:bg-yellow-600 text-white px-10 py-5 rounded-3xl font-bold text-lg transition transform hover:-translate-y-1 shadow-2xl shadow-yellow-400/40">Lihat Paket</a>
+                    <a href="#menu" class="bg-white border-2 border-yellow-100 text-yellow-600 px-10 py-5 rounded-3xl font-bold text-lg hover:bg-yellow-50 transition shadow-xl shadow-yellow-100">Daftar Menu</a>
                 </div>
             </div>
-            
             <div class="relative group">
-                <div class="absolute -inset-4 bg-yellow-400/20 rounded-[50px] blur-2xl group-hover:bg-yellow-400/30 transition duration-500"></div>
                 <div class="relative bg-white p-4 rounded-[50px] shadow-2xl border border-yellow-50 overflow-hidden transform group-hover:rotate-2 transition duration-500">
-                    <!-- FOTO UTAMA DI SEBELAH KANAN -->
-                    <img src="https://images.unsplash.com/photo-1555244162-803834f70033?q=80&w=1000&auto=format&fit=crop" 
-                         alt="Catering Dapur Rasa" 
-                         class="w-full h-[600px] object-cover rounded-[40px]">
-                    
-                    <div class="absolute top-10 right-10 bg-white/90 backdrop-blur p-4 rounded-3xl shadow-xl border border-yellow-100 flex items-center gap-4">
-                        <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-white text-2xl font-bold">✓</div>
+                    <img src="https://images.unsplash.com/photo-1555244162-803834f70033?q=80&w=1000&auto=format&fit=crop" alt="Catering" class="w-full h-[600px] object-cover rounded-[40px]">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Showcase with Prices -->
+    <section id="menu" class="py-32 bg-pattern">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-extrabold mb-6">Menu <span class="text-yellow-500">Andalan</span> Kami</h2>
+                <p class="text-lg text-slate-500">Cita rasa Nusantara dengan harga yang tetap bersahabat[cite: 3].</p>
+            </div>
+            
+            <div class="grid md:grid-cols-4 gap-6">
+                <div class="group relative h-96 rounded-[40px] overflow-hidden shadow-xl">
+                    <img src="https://images.unsplash.com/photo-1541544741938-0af808871cc0?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                    <div class="absolute top-6 left-6 bg-yellow-500 text-white font-bold px-4 py-2 rounded-full shadow-lg">Rp 35.000</div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-8">
                         <div>
-                            <p class="text-xs text-slate-400 font-bold uppercase">Kualitas</p>
-                            <p class="font-bold">Bahan Segar Harian</p>
+                            <p class="text-white font-bold text-xl">Nasi Kotak Ayam Bakar</p>
+                            <p class="text-yellow-400 text-sm">Lengkap dengan sambal & lalap</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="group relative h-96 rounded-[40px] overflow-hidden shadow-xl mt-8">
+                    <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                    <div class="absolute top-6 left-6 bg-yellow-500 text-white font-bold px-4 py-2 rounded-full shadow-lg">Rp 25.000</div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-8">
+                        <div>
+                            <p class="text-white font-bold text-xl">Healthy Bowl Salad</p>
+                            <p class="text-yellow-400 text-sm">Sayuran segar organik</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="group relative h-96 rounded-[40px] overflow-hidden shadow-xl">
+                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                    <div class="absolute top-6 left-6 bg-yellow-500 text-white font-bold px-4 py-2 rounded-full shadow-lg">Rp 45.000</div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-8">
+                        <div>
+                            <p class="text-white font-bold text-xl">Paket Bento Spesial</p>
+                            <p class="text-yellow-400 text-sm">Menu lengkap variasi koki</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="group relative h-96 rounded-[40px] overflow-hidden shadow-xl mt-8">
+                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                    <div class="absolute top-6 left-6 bg-yellow-500 text-white font-bold px-4 py-2 rounded-full shadow-lg">Rp 15.000</div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-8">
+                        <div>
+                            <p class="text-white font-bold text-xl">Aneka Dessert Cup</p>
+                            <p class="text-yellow-400 text-sm">Manis penutup yang segar</p>
                         </div>
                     </div>
                 </div>
@@ -100,53 +124,57 @@
         </div>
     </section>
 
-    <!-- Menu Showcase -->
-    <section id="menu" class="py-32 bg-pattern">
+    <!-- Pricing Packages -->
+    <section id="harga" class="py-24 bg-white">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-                <div class="max-w-2xl">
-                    <h2 class="text-4xl md:text-5xl font-extrabold mb-6">Pilihan Menu <span class="text-yellow-500">Favorit</span></h2>
-                    <p class="text-lg text-slate-500">Dibuat dengan rempah asli Nusantara untuk menjaga cita rasa yang tak terlupakan.</p>
-                </div>
-                <a href="#" class="text-yellow-600 font-bold flex items-center gap-2 hover:gap-4 transition-all">Lihat Semua Menu <span>→</span></a>
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-extrabold mb-4">Pilihan <span class="text-yellow-500">Paket Hemat</span></h2>
+                <p class="text-slate-500">Hemat di kantong, nikmat di lidah[cite: 3].</p>
             </div>
-            
-            <div class="grid md:grid-cols-4 gap-6">
-                <!-- Gambar Gallery -->
-                <div class="group relative h-80 rounded-[40px] overflow-hidden shadow-xl">
-                    <img src="https://images.unsplash.com/photo-1541544741938-0af808871cc0?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-8">
-                        <p class="text-white font-bold text-xl">Nasi Tumpeng</p>
-                    </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="p-10 border border-yellow-100 rounded-[40px] hover:border-yellow-500 transition duration-300">
+                    <h3 class="text-xl font-bold mb-2">Paket Personal</h3>
+                    <p class="text-4xl font-extrabold mb-6">Rp 25k<span class="text-lg text-slate-400 font-normal">/porsi</span></p>
+                    <ul class="space-y-4 mb-8 text-slate-600">
+                        <li>✓ Nasi Putih</li>
+                        <li>✓ Lauk Utama & Pendamping</li>
+                        <li>✓ Sayuran Segar</li>
+                        <li>✓ Sambal & Kerupuk</li>
+                    </ul>
+                    <button class="w-full py-4 bg-yellow-50 text-yellow-600 font-bold rounded-2xl hover:bg-yellow-500 hover:text-white transition">Pilih Paket</button>
                 </div>
-                <div class="group relative h-80 rounded-[40px] overflow-hidden shadow-xl mt-8">
-                    <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-8">
-                        <p class="text-white font-bold text-xl">Salad Segar</p>
-                    </div>
+                <div class="p-10 bg-yellow-500 text-white rounded-[40px] shadow-2xl scale-105 relative">
+                    <div class="absolute top-0 right-10 transform -translate-y-1/2 bg-slate-900 text-white px-4 py-1 rounded-full text-sm font-bold">TERLARIS</div>
+                    <h3 class="text-xl font-bold mb-2">Paket Nasi Kotak</h3>
+                    <p class="text-4xl font-extrabold mb-6">Rp 35k<span class="text-lg opacity-80 font-normal">/box</span></p>
+                    <ul class="space-y-4 mb-8">
+                        <li>✓ Menu Lengkap Spesial</li>
+                        <li>✓ Buah/Pencuci Mulut</li>
+                        <li>✓ Air Mineral Gelas</li>
+                        <li>✓ Sendok & Tisu Higienis</li>
+                    </ul>
+                    <button class="w-full py-4 bg-white text-yellow-600 font-bold rounded-2xl shadow-xl">Pesan Sekarang</button>
                 </div>
-                <div class="group relative h-80 rounded-[40px] overflow-hidden shadow-xl">
-                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-8">
-                        <p class="text-white font-bold text-xl">Ayam Bakar</p>
-                    </div>
-                </div>
-                <div class="group relative h-80 rounded-[40px] overflow-hidden shadow-xl mt-8">
-                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-8">
-                        <p class="text-white font-bold text-xl">Aneka Pencuci Mulut</p>
-                    </div>
+                <div class="p-10 border border-yellow-100 rounded-[40px] hover:border-yellow-500 transition duration-300">
+                    <h3 class="text-xl font-bold mb-2">Paket Prasmanan</h3>
+                    <p class="text-4xl font-extrabold mb-6">Rp 75k<span class="text-lg text-slate-400 font-normal">/pax</span></p>
+                    <ul class="space-y-4 mb-8 text-slate-600">
+                        <li>✓ Menu Prasmanan Lengkap</li>
+                        <li>✓ Peralatan Makan & Pemanas</li>
+                        <li>✓ Pelayanan Pramusaji</li>
+                        <li>✓ Dekorasi Meja Makan</li>
+                    </ul>
+                    <button class="w-full py-4 bg-yellow-50 text-yellow-600 font-bold rounded-2xl hover:bg-yellow-500 hover:text-white transition">Hubungi Kami</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer Simple -->
+    <!-- Footer -->
     <footer class="bg-slate-900 py-12">
         <div class="max-w-7xl mx-auto px-6 text-center text-slate-500">
-            <p>&copy; 2026 Catering Dapur Rasa. Rasa Juara, Harga Paseduluran.</p>
+            <p>&copy; 2026 Catering Dapur Rasa. Kualitas Terjamin, Harga Paseduluran[cite: 3].</p>
         </div>
     </footer>
-
 </body>
 </html>
