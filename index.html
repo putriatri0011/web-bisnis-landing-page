@@ -3,120 +3,412 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catering Dapur Rasa - Sajian Istimewa</title>
+    <title>Catering Dapur Rasa - Lezat, Higienis & Premium</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
-        .hero-gradient { background: linear-gradient(135deg, #fefce8 0%, #fef9c3 100%); }
+        /* Custom curve kuning melengkung organik mirip referensi b188f8 */
+        .hero-curve {
+            background: #fff;
+            position: relative;
+        }
+        .hero-curve::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: radial-gradient(circle at top right, #fde047 0%, #facc15 100%);
+            border-bottom-left-radius: 100% 50%;
+            z-index: 0;
+        }
+        @media (max-width: 768px) {
+            .hero-curve::before {
+                width: 100%;
+                height: 50%;
+                bottom: 0;
+                top: auto;
+                border-bottom-left-radius: 0;
+                border-top-left-radius: 50% 100%;
+            }
+        }
+        .card-zoom:hover img { transform: scale(1.08); }
     </style>
 </head>
-<body class="bg-white text-slate-900">
+<body class="bg-slate-50 text-slate-900 overflow-x-hidden">
 
-    <!-- Navigasi -->
-    <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-lg border-b border-yellow-100">
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-xl border-b border-yellow-100/50">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <div class="flex items-center gap-2">
-                <div class="w-10 h-10 bg-yellow-500 rounded-xl flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-yellow-200">D</div>
-                <span class="text-2xl font-extrabold tracking-tight">Dapur<span class="text-yellow-500">Rasa</span></span>
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-yellow-500 rounded-xl flex items-center justify-center text-white font-black text-xl shadow-md">D</div>
+                <span class="text-2xl font-black tracking-tight text-slate-900">Dapur<span class="text-yellow-500">Rasa</span></span>
             </div>
-            <div class="hidden md:flex items-center gap-8 font-semibold text-slate-600">
+            <div class="hidden md:flex items-center gap-8 font-bold text-slate-600">
                 <a href="#home" class="hover:text-yellow-600 transition">Beranda</a>
-                <!-- Pastikan href ini sesuai dengan id di bawah -->
-                <a href="#keunggulan" class="hover:text-yellow-600 transition">Keunggulan</a>
-                <a href="#menu" class="hover:text-yellow-600 transition">Menu</a>
+                <a href="#tentang" class="hover:text-yellow-600 transition">Tentang Kami</a>
+                <a href="#why-choose-us" class="hover:text-yellow-600 transition">Keunggulan</a>
+                <a href="#menu" class="hover:text-yellow-600 transition">Menu Andalan</a>
                 <a href="#harga" class="hover:text-yellow-600 transition">Paket</a>
+                <a href="#testimoni" class="hover:text-yellow-600 transition">Testimoni</a>
             </div>
-            <a href="https://wa.me/628123456789" class="bg-yellow-500 hover:bg-yellow-600 text-white px-7 py-3 rounded-2xl font-bold transition shadow-lg shadow-yellow-200">Pesan Sekarang</a>
+            <a href="https://wa.me/628123456789" class="bg-yellow-500 hover:bg-yellow-600 text-white px-6 py-2.5 rounded-full font-bold shadow-lg shadow-yellow-200 transition-all hover:scale-105 active:scale-95">
+                Pesan Sekarang
+            </a>
         </div>
     </nav>
 
-    <!-- Section: Beranda -->
-    <section id="home" class="pt-32 pb-20 hero-gradient min-h-screen flex items-center">
-        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-            <div>
-                <h1 class="text-5xl md:text-7xl font-extrabold leading-[1.1] mb-8 text-slate-900">
-                    Sajian Lezat Sehangat <span class="text-yellow-500 italic">Masakan Ibu</span>
+    <section id="home" class="hero-curve pt-32 pb-24 min-h-screen flex items-center overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center relative z-10 w-full">
+            <div class="space-y-6">
+                <span class="text-yellow-600 font-extrabold uppercase tracking-widest text-sm">— Premium Catering</span>
+                <h1 class="text-5xl md:text-6xl font-black leading-tight text-slate-900">
+                    Sajian Lezat <br>
+                    Sehangat <span class="text-yellow-500 italic">Masakan Ibu</span>
                 </h1>
-                <p class="text-xl text-slate-600 mb-10 leading-relaxed max-w-lg">
-                    Catering Dapur Rasa melayani nasi kotak hingga prasmanan dengan rasa otentik dan bahan pilihan harian.
+                <p class="text-slate-600 text-lg max-w-md leading-relaxed">
+                    Catering Dapur Rasa menyajikan ragam menu Nusantara & Modern dengan standar kebersihan tinggi, bahan fresh harian, dan cita rasa juara untuk setiap momen istimewa Anda.
                 </p>
-                <div class="flex flex-wrap gap-5">
-                    <a href="#harga" class="bg-yellow-500 text-white px-10 py-5 rounded-3xl font-bold shadow-xl shadow-yellow-400/40">Lihat Paket</a>
+                <div class="pt-4">
+                    <a href="#menu" class="bg-slate-900 hover:bg-slate-800 text-white px-8 py-4 rounded-full font-extrabold text-lg shadow-xl transition-all inline-block hover:-translate-y-1">
+                        Jelajahi Menu
+                    </a>
                 </div>
             </div>
-            <div class="relative">
-                <img src="https://images.unsplash.com/photo-1555244162-803834f70033?q=80&w=1000&auto=format&fit=crop" class="w-full h-[500px] object-cover rounded-[40px] shadow-2xl border border-yellow-50">
-            </div>
-        </div>
-    </section>
 
-    <!-- Section: Keunggulan (ID Sesuai Navigasi) -->
-    <section id="keunggulan" class="py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-6 text-center">
-            <h2 class="text-4xl font-extrabold mb-16">Kenapa Harus <span class="text-yellow-500">Dapur Rasa?</span></h2>
-            <div class="grid md:grid-cols-3 gap-8 text-left">
-                <div class="p-10 bg-yellow-50 rounded-[40px] border border-yellow-100 hover:bg-yellow-100 transition shadow-sm">
-                    <div class="text-5xl mb-6">👨‍🍳</div>
-                    <h3 class="text-2xl font-bold mb-4">Koki Ahli</h3>
-                    <p class="text-slate-600">Menu diracik oleh koki berpengalaman yang menjaga keaslian rasa rumahan.</p>
+            <div class="relative flex items-center justify-center">
+                <div class="w-[320px] h-[320px] md:w-[450px] md:h-[450px] rounded-full overflow-hidden border-[12px] border-white shadow-2xl relative z-10 transform hover:scale-105 transition-all duration-500">
+                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=800&auto=format&fit=crop" alt="Sajian Utama Dapur Rasa" class="w-full h-full object-cover">
                 </div>
-                <div class="p-10 bg-yellow-50 rounded-[40px] border border-yellow-100 hover:bg-yellow-100 transition shadow-sm">
-                    <div class="text-5xl mb-6">🥬</div>
-                    <h3 class="text-2xl font-bold mb-4">Bahan Higienis</h3>
-                    <p class="text-slate-600">Hanya menggunakan bahan pangan segar berkualitas yang dipilih setiap pagi.</p>
+                
+                <div class="absolute -top-4 right-12 w-20 h-20 rounded-full overflow-hidden border-4 border-white shadow-lg z-20">
+                    <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?q=80&w=200&auto=format&fit=crop" class="w-full h-full object-cover">
                 </div>
-                <div class="p-10 bg-yellow-50 rounded-[40px] border border-yellow-100 hover:bg-yellow-100 transition shadow-sm">
-                    <div class="text-5xl mb-6">🚚</div>
-                    <h3 class="text-2xl font-bold mb-4">On Time Delivery</h3>
-                    <p class="text-slate-600">Kami menjamin makanan sampai di lokasi Anda tepat waktu sesuai kesepakatan[cite: 3].</p>
+                <div class="absolute top-1/2 -right-6 w-20 h-20 rounded-full overflow-hidden border-4 border-white shadow-lg z-20">
+                    <img src="https://images.unsplash.com/photo-1541544741938-0af808871cc0?q=80&w=200&auto=format&fit=crop" class="w-full h-full object-cover">
+                </div>
+                <div class="absolute bottom-4 right-1/4 w-20 h-20 rounded-full overflow-hidden border-4 border-white shadow-lg z-20">
+                    <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=200&auto=format&fit=crop" class="w-full h-full object-cover">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section: Menu -->
-    <section id="menu" class="py-24 bg-slate-50">
-        <div class="max-w-7xl mx-auto px-6 text-center">
-            <h2 class="text-4xl font-extrabold mb-16 text-yellow-500">Menu Andalan</h2>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="relative h-64 rounded-[40px] overflow-hidden shadow-xl">
-                    <img src="https://images.unsplash.com/photo-1541544741938-0af808871cc0?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-black/40 flex flex-col justify-end p-8 text-left">
-                        <p class="text-white font-bold text-2xl">Nasi Kotak Ayam Bakar</p>
-                        <p class="text-yellow-400 font-bold">Rp 35.000</p>
+    <section id="tentang" class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+            <div class="relative flex items-center justify-center gap-6">
+                <div class="absolute top-0 left-10 w-44 h-44 bg-yellow-500 rounded-t-[50px] rounded-bl-[50px] -z-10 opacity-80"></div>
+                
+                <div class="w-44 h-72 rounded-[30px] overflow-hidden shadow-2xl bg-gradient-to-b from-yellow-100 to-white p-4 flex flex-col justify-between items-center border border-yellow-200">
+                    <span class="text-xs font-black text-yellow-600 bg-white px-3 py-1 rounded-full shadow-sm">100% ALAMI</span>
+                    <img src="https://images.unsplash.com/photo-1607532941433-304659e8198a?q=80&w=300&auto=format&fit=crop" alt="Sayur Segar" class="w-32 h-32 object-cover rounded-2xl shadow-md">
+                    <p class="font-extrabold text-xs text-center text-slate-800">Bahan Alami & <br>Tanpa Pengawet</p>
+                </div>
+                <div class="w-56 h-56 rounded-full overflow-hidden border-8 border-white shadow-2xl">
+                    <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover">
+                </div>
+            </div>
+
+            <div class="space-y-6">
+                <span class="text-yellow-600 font-extrabold uppercase tracking-wider text-sm">Tentang Kami</span>
+                <h2 class="text-4xl font-extrabold text-slate-900 leading-tight">Kami Menyajikan Kuliner Katering Terbaik Untuk Anda</h2>
+                <p class="text-slate-600 leading-relaxed">
+                    Setiap porsi hidangan dari <strong>Catering Dapur Rasa</strong> diracik dengan dedikasi penuh menggunakan resep warisan ibu yang kaya rempah Nusantara. Kami mengutamakan kesegaran bahan baku lokal harian, menjaga higienitas dapur, serta berkomitmen menyajikan kebahagiaan di setiap acara Anda.
+                </p>
+                <div class="grid grid-cols-2 gap-6 pt-4">
+                    <div class="flex items-center gap-3">
+                        <span class="text-3xl">👨‍🍳</span>
+                        <div>
+                            <h4 class="font-bold text-slate-900">Koki Profesional</h4>
+                            <p class="text-xs text-slate-500">Rasa otentik & konsisten</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="text-3xl">🥬</span>
+                        <div>
+                            <h4 class="font-bold text-slate-900">Bahan Premium</h4>
+                            <p class="text-xs text-slate-500">Dipilih segar setiap pagi</p>
+                        </div>
                     </div>
                 </div>
-                <div class="relative h-64 rounded-[40px] overflow-hidden shadow-xl">
-                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-black/40 flex flex-col justify-end p-8 text-left">
-                        <p class="text-white font-bold text-2xl">Paket Bento Spesial</p>
-                        <p class="text-yellow-400 font-bold">Rp 45.000</p>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
 
-    <!-- Section: Harga -->
-    <section id="harga" class="py-24 bg-white text-center">
+    <section id="why-choose-us" class="py-24 bg-white border-t border-yellow-100/50">
         <div class="max-w-7xl mx-auto px-6">
-            <h2 class="text-4xl font-extrabold mb-16">Paket <span class="text-yellow-500">Harga</span></h2>
-            <div class="p-10 bg-yellow-500 text-white rounded-[40px] shadow-2xl max-w-lg mx-auto">
-                <h3 class="text-2xl font-bold mb-2">Paket Nasi Kotak</h3>
-                <p class="text-5xl font-extrabold mb-6">Rp 35k<span class="text-lg font-normal">/box</span></p>
-                <ul class="text-left space-y-4 mb-10">
-                    <li>✓ Menu Lengkap Spesial[cite: 3]</li>
-                    <li>✓ Buah Pencuci Mulut[cite: 3]</li>
-                    <li>✓ Higienis & Halal[cite: 3]</li>
-                </ul>
-                <button class="w-full py-4 bg-white text-yellow-600 font-bold rounded-2xl">Hubungi WhatsApp</button>
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-yellow-600 font-extrabold uppercase tracking-wider text-sm">Kenapa Kami</span>
+                <h2 class="text-4xl font-black text-slate-900 mt-2 mb-4">Mengapa Memilih Layanan Kami?</h2>
+                <div class="h-1 w-16 bg-yellow-500 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <div class="flex gap-4 items-start p-6 rounded-2xl hover:bg-slate-50 transition-colors">
+                    <div class="w-12 h-12 bg-yellow-100 rounded-xl flex items-center justify-center text-yellow-600 shrink-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <div class="space-y-1">
+                        <h4 class="text-lg font-bold text-slate-900">Bahan Baku Berkualitas</h4>
+                        <p class="text-slate-500 text-sm leading-relaxed">Semua bahan makanan dipilih dan dipastikan kesegarannya setiap pagi demi rasa masakan yang prima.</p>
+                    </div>
+                </div>
+
+                <div class="flex gap-4 items-start p-6 rounded-2xl hover:bg-slate-50 transition-colors">
+                    <div class="w-12 h-12 bg-yellow-100 rounded-xl flex items-center justify-center text-yellow-600 shrink-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                        </svg>
+                    </div>
+                    <div class="space-y-1">
+                        <h4 class="text-lg font-bold text-slate-900">Resep Asli Teruji</h4>
+                        <p class="text-slate-500 text-sm leading-relaxed">Racikan rempah yang pas berdasarkan resep turun-temurun, menghasilkan cita rasa Nusantara yang khas.</p>
+                    </div>
+                </div>
+
+                <div class="flex gap-4 items-start p-6 rounded-2xl hover:bg-slate-50 transition-colors">
+                    <div class="w-12 h-12 bg-yellow-100 rounded-xl flex items-center justify-center text-yellow-600 shrink-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                    </div>
+                    <div class="space-y-1">
+                        <h4 class="text-lg font-bold text-slate-900">Area Pengiriman Luas</h4>
+                        <p class="text-slate-500 text-sm leading-relaxed">Menjangkau berbagai wilayah penting di Jawa Tengah dengan ketepatan waktu tinggi agar pesanan tetap hangat.</p>
+                    </div>
+                </div>
+
+                <div class="flex gap-4 items-start p-6 rounded-2xl hover:bg-slate-50 transition-colors">
+                    <div class="w-12 h-12 bg-yellow-100 rounded-xl flex items-center justify-center text-yellow-600 shrink-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
+                    </div>
+                    <div class="space-y-1">
+                        <h4 class="text-lg font-bold text-slate-900">Higienitas Terjamin</h4>
+                        <p class="text-slate-500 text-sm leading-relaxed">Proses pengemasan dan standar kebersihan peralatan dapur kami pantau secara ketat setiap hari.</p>
+                    </div>
+                </div>
+
+                <div class="flex gap-4 items-start p-6 rounded-2xl hover:bg-slate-50 transition-colors">
+                    <div class="w-12 h-12 bg-yellow-100 rounded-xl flex items-center justify-center text-yellow-600 shrink-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <div class="space-y-1">
+                        <h4 class="text-lg font-bold text-slate-900">Harga Fleksibel</h4>
+                        <p class="text-slate-500 text-sm leading-relaxed">Kami siap menyesuaikan pilihan menu dengan budget acara kantor, arisan, maupun katering keluarga Anda.</p>
+                    </div>
+                </div>
+
+                <div class="flex gap-4 items-start p-6 rounded-2xl hover:bg-slate-50 transition-colors">
+                    <div class="w-12 h-12 bg-yellow-100 rounded-xl flex items-center justify-center text-yellow-600 shrink-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
+                        </svg>
+                    </div>
+                    <div class="space-y-1">
+                        <h4 class="text-lg font-bold text-slate-900">Layanan Responsif</h4>
+                        <p class="text-slate-500 text-sm leading-relaxed">Tim customer service kami siap membantu penyusunan rencana menu terbaik dengan pelayanan yang ramah.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <footer class="bg-slate-900 py-12 text-center text-slate-500">
-        <p>&copy; 2026 Catering Dapur Rasa. Rasa Juara, Harga Paseduluran[cite: 3].</p>
+    <section id="menu" class="py-24 bg-slate-50 border-t border-b border-yellow-100/50">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h2 class="text-4xl font-black text-slate-900 mb-2">6 Menu Andalan Terpopuler</h2>
+            <p class="text-slate-500 mb-16 max-w-lg mx-auto">Sajian istimewa dengan bahan baku berkualitas yang paling disukai pelanggan kami.</p>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-3xl shadow-lg hover:shadow-2xl transition duration-300 border border-slate-100 text-left card-zoom group">
+                    <div class="relative h-52 rounded-2xl overflow-hidden mb-6">
+                        <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?q=80&w=600&auto=format&fit=crop" alt="Nasi Kotak Ayam Bakar" class="w-full h-full object-cover transition-transform duration-500">
+                    </div>
+                    <div class="flex justify-between items-center mb-3">
+                        <h3 class="text-lg font-bold text-slate-900 group-hover:text-yellow-600 transition-colors">Nasi Kotak Ayam Bakar</h3>
+                        <span class="text-sm font-extrabold text-yellow-600 bg-yellow-50 px-3 py-1 rounded-full">Rp 35k</span>
+                    </div>
+                    <p class="text-slate-500 text-sm leading-relaxed">Ayam bakar bumbu rujak meresap, nasi hangat, tahu, tempe, lalapan segar, dan sambal terasi matang.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-3xl shadow-lg hover:shadow-2xl transition duration-300 border border-slate-100 text-left card-zoom group">
+                    <div class="relative h-52 rounded-2xl overflow-hidden mb-6">
+                        <img src="https://images.unsplash.com/photo-1541544741938-0af808871cc0?q=80&w=600&auto=format&fit=crop" alt="Paket Bento Spesial" class="w-full h-full object-cover transition-transform duration-500">
+                    </div>
+                    <div class="flex justify-between items-center mb-3">
+                        <h3 class="text-lg font-bold text-slate-900 group-hover:text-yellow-600 transition-colors">Paket Bento Chicken Katsu</h3>
+                        <span class="text-sm font-extrabold text-yellow-600 bg-yellow-50 px-3 py-1 rounded-full">Rp 45k</span>
+                    </div>
+                    <p class="text-slate-500 text-sm leading-relaxed">Chicken katsu renyah, salad kol & wortel segar khas Jepang, nasi pulen hangat, dan saus gurih.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-3xl shadow-lg hover:shadow-2xl transition duration-300 border border-slate-100 text-left card-zoom group">
+                    <div class="relative h-52 rounded-2xl overflow-hidden mb-6">
+                        <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=600&auto=format&fit=crop" alt="Healthy Bowl Salad" class="w-full h-full object-cover transition-transform duration-500">
+                    </div>
+                    <div class="flex justify-between items-center mb-3">
+                        <h3 class="text-lg font-bold text-slate-900 group-hover:text-yellow-600 transition-colors">Healthy Salad Bowl</h3>
+                        <span class="text-sm font-extrabold text-yellow-600 bg-yellow-50 px-3 py-1 rounded-full">Rp 25k</span>
+                    </div>
+                    <p class="text-slate-500 text-sm leading-relaxed">Sayuran selada organik renyah, tomat ceri, potongan dada ayam panggang juicy, dan wijen dressing.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-3xl shadow-lg hover:shadow-2xl transition duration-300 border border-slate-100 text-left card-zoom group">
+                    <div class="relative h-52 rounded-2xl overflow-hidden mb-6">
+                        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=600&auto=format&fit=crop" alt="Iga Bakar Madu" class="w-full h-full object-cover transition-transform duration-500">
+                    </div>
+                    <div class="flex justify-between items-center mb-3">
+                        <h3 class="text-lg font-bold text-slate-900 group-hover:text-yellow-600 transition-colors">Iga Bakar Saus Madu</h3>
+                        <span class="text-sm font-extrabold text-yellow-600 bg-yellow-50 px-3 py-1 rounded-full">Rp 65k</span>
+                    </div>
+                    <p class="text-slate-500 text-sm leading-relaxed">Iga sapi premium empuk lembut dimarinasi bumbu bakar madu manis gurih yang meresap sempurna.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-3xl shadow-lg hover:shadow-2xl transition duration-300 border border-slate-100 text-left card-zoom group">
+                    <div class="relative h-52 rounded-2xl overflow-hidden mb-6">
+                        <img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?q=80&w=600&auto=format&fit=crop" alt="Gulai Kepala Kakap" class="w-full h-full object-cover transition-transform duration-500">
+                    </div>
+                    <div class="flex justify-between items-center mb-3">
+                        <h3 class="text-lg font-bold text-slate-900 group-hover:text-yellow-600 transition-colors">Gulai Kakap Rempah</h3>
+                        <span class="text-sm font-extrabold text-yellow-600 bg-yellow-50 px-3 py-1 rounded-full">Rp 55k</span>
+                    </div>
+                    <p class="text-slate-500 text-sm leading-relaxed">Kakap segar pilihan dimasak perlahan dalam siraman kuah gulai gurih kaya bumbu tradisional.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-3xl shadow-lg hover:shadow-2xl transition duration-300 border border-slate-100 text-left card-zoom group">
+                    <div class="relative h-52 rounded-2xl overflow-hidden mb-6">
+                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=600&auto=format&fit=crop" alt="Aneka Dessert Cup" class="w-full h-full object-cover transition-transform duration-500">
+                    </div>
+                    <div class="flex justify-between items-center mb-3">
+                        <h3 class="text-lg font-bold text-slate-900 group-hover:text-yellow-600 transition-colors">Sweet Dessert Cup</h3>
+                        <span class="text-sm font-extrabold text-yellow-600 bg-yellow-50 px-3 py-1 rounded-full">Rp 15k</span>
+                    </div>
+                    <p class="text-slate-500 text-sm leading-relaxed">Kombinasi dessert manis penutup manis segar dari silky pudding lembut, mangga segar, dan krim manis.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="harga" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h2 class="text-4xl font-black text-slate-900 mb-2">Pilihan Paket Hemat</h2>
+            <p class="text-slate-500 mb-16">Porsi mengenyangkan untuk kebutuhan acara & langganan rutin harian Anda.</p>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="p-8 bg-white border border-yellow-100 rounded-3xl hover:border-yellow-500 transition duration-300 text-left shadow-lg">
+                    <h3 class="text-lg font-bold text-slate-400">Paket Harian Kantor</h3>
+                    <div class="my-6">
+                        <span class="text-4xl font-extrabold text-slate-900">Rp 25k</span>
+                        <span class="text-slate-400">/porsi</span>
+                    </div>
+                    <ul class="space-y-4 mb-8 text-slate-600 text-sm">
+                        <li>✓ Nasi Putih Gurih</li>
+                        <li>✓ Lauk Utama + Lauk Pendamping</li>
+                        <li>✓ Sayuran Segar & Sambal</li>
+                        <li>✓ Pengiriman Tepat Waktu</li>
+                    </ul>
+                    <a href="https://wa.me/628123456789" class="block text-center py-3 bg-yellow-50 text-yellow-600 font-bold rounded-2xl hover:bg-yellow-500 hover:text-white transition">Hubungi WA</a>
+                </div>
+
+                <div class="p-8 bg-yellow-500 text-white rounded-3xl shadow-2xl relative overflow-hidden text-left md:-mt-4">
+                    <div class="absolute top-0 right-8 transform -translate-y-1/2 bg-slate-900 text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest">Paling Laris</div>
+                    <h3 class="text-lg font-bold opacity-80">Paket Event Nasi Box</h3>
+                    <div class="my-6">
+                        <span class="text-4xl font-extrabold">Rp 35k</span>
+                        <span class="opacity-70">/box</span>
+                    </div>
+                    <ul class="space-y-4 mb-8 text-sm font-semibold">
+                        <li>⭐ Pilihan Menu Custom Bebas</li>
+                        <li>⭐ Kemasan Box Premium Tebal</li>
+                        <li>⭐ Lengkap dengan Sendok & Tisu</li>
+                        <li>⭐ Minimal Order Hanya 20 Box</li>
+                    </ul>
+                    <a href="https://wa.me/628123456789" class="block text-center py-3 bg-white text-yellow-600 font-extrabold rounded-2xl shadow-lg hover:bg-yellow-50 transition">Pesan Sekarang</a>
+                </div>
+
+                <div class="p-8 bg-white border border-yellow-100 rounded-3xl hover:border-yellow-500 transition duration-300 text-left shadow-lg">
+                    <h3 class="text-lg font-bold text-slate-400">Paket Prasmanan</h3>
+                    <div class="my-6">
+                        <span class="text-4xl font-extrabold text-slate-900">Rp 75k</span>
+                        <span class="text-slate-400">/pax</span>
+                    </div>
+                    <ul class="space-y-4 mb-8 text-slate-600 text-sm">
+                        <li>✓ Setup Meja & Alat Prasmanan</li>
+                        <li>✓ Pilihan Lauk Lengkap Premium</li>
+                        <li>✓ Dilayani Pramusaji Ramah</li>
+                        <li>✓ Dekorasi Stand Area Makan</li>
+                    </ul>
+                    <a href="https://wa.me/628123456789" class="block text-center py-3 bg-yellow-50 text-yellow-600 font-bold rounded-2xl hover:bg-yellow-500 hover:text-white transition">Tanya Detail</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimoni" class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h2 class="text-4xl font-extrabold mb-4">Ulasan <span class="text-yellow-500">Pelanggan Setia</span></h2>
+            <p class="text-slate-500 mb-16 max-w-lg mx-auto">Mereka yang telah menikmati kelezatan sajian dari dapur kami.</p>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="p-8 bg-white rounded-[32px] border border-yellow-100/60 shadow-md flex gap-6 text-left items-center">
+                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=150&auto=format&fit=crop" class="w-20 h-20 rounded-full object-cover border-4 border-yellow-100">
+                    <div>
+                        <p class="text-base italic text-slate-600 mb-2">"Nasi kotaknya bener-bener mantap! Bumbu ayam bakarnya meresap sampai ke tulang, porsinya ngenyangin, dan sayurnya seger semua."</p>
+                        <p class="font-extrabold text-slate-900">Andini Puteri</p>
+                        <p class="text-xs text-yellow-600 font-bold">Acara Syukuran Rumah</p>
+                    </div>
+                </div>
+                <div class="p-8 bg-white rounded-[32px] border border-yellow-100/60 shadow-md flex gap-6 text-left items-center">
+                    <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=150&auto=format&fit=crop" class="w-20 h-20 rounded-full object-cover border-4 border-yellow-100">
+                    <div>
+                        <p class="text-base italic text-slate-600 mb-2">"Kami langganan Bento Katsu buat makan siang kantor mingguan. Pengirimannya selalu tepat waktu sebelum jam istirahat. Highly recommended!"</p>
+                        <p class="font-extrabold text-slate-900">Budi Setiawan</p>
+                        <p class="text-xs text-yellow-600 font-bold">Manajer Operasional, PT ABC</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-slate-900 text-white pt-20 pb-12">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-12 pb-16 border-b border-slate-800">
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 bg-yellow-500 rounded-lg flex items-center justify-center text-white font-bold">D</div>
+                        <span class="text-xl font-bold">Catering Dapur Rasa</span>
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Menyediakan layanan katering premium terbaik di Jawa Tengah dengan cita rasa rumahan otentik yang lezat, higienis, dan terpercaya.
+                    </p>
+                </div>
+                <div class="space-y-4">
+                    <h4 class="text-lg font-bold text-yellow-500">Jam Layanan</h4>
+                    <ul class="text-slate-400 text-sm space-y-2">
+                        <li>Senin - Sabtu: 07.00 - 19.00 WIB</li>
+                        <li>Minggu / Hari Libur: (Hanya Booking Event)</li>
+                    </ul>
+                </div>
+                <div class="space-y-4">
+                    <h4 class="text-lg font-bold text-yellow-500">Kontak Kami</h4>
+                    <p class="text-slate-400 text-sm">Jl. Pemuda No. 123, Semarang, Jawa Tengah</p>
+                    <p class="text-slate-400 text-sm">Email: info@dapurrasacatering.com</p>
+                </div>
+            </div>
+            <div class="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-slate-500 text-sm">
+                <p>&copy; 2026 Catering Dapur Rasa. Hak Cipta Dilindungi.</p>
+                <div class="flex gap-6">
+                    <a href="#" class="hover:text-white transition">Kebijakan Privasi</a>
+                    <a href="#" class="hover:text-white transition">Syarat & Ketentuan</a>
+                </div>
+            </div>
+        </div>
     </footer>
 
 </body>
